@@ -8,11 +8,14 @@ function Slide ({ currentImageSrc, nextImageIndex, prevImageIndex }) {
   const onLoadHandler = () => {
     wrapper.current.style.opacity = 1;
   };
+  //Поменять на класс Active
   useEffect(() => {
     setTimeout(() => {
       currentImage.current.style.opacity = 1;
-    }, 250);
-    return () => (currentImage.current.style.opacity = 0);
+    }, 500);
+    return () => {
+      currentImage.current.style.opacity = 0;
+    };
   }, [currentImageSrc]);
   return (
     <>
