@@ -39,13 +39,12 @@ function Slider () {
           className={cx(style.button, style.prevButton)}
           onClick={prevSlideHandler}
         >
-          prev
+          
         </button>
         <button
           className={cx(style.button, style.nextButton)}
           onClick={nextSlideHandler}
         >
-          next
         </button>
         </div>
       </>

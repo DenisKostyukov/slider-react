@@ -1,20 +1,21 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import cx from 'classnames';
 import style from './Slide.module.sass';
 function Slide ({ currentImageSrc, nextImageIndex, prevImageIndex }) {
   const currentImage = useRef(null);
   const prevImage = useRef(null);
   const nextImage = useRef(null);
   const wrapper = useRef(null);
+  const [active, setActive] = useState(true)
   const onLoadHandler = () => {
     wrapper.current.style.opacity = 1;
   };
-  //Поменять на класс Active
   useEffect(() => {
     setTimeout(() => {
-      currentImage.current.style.opacity = 1;
+      setActive(true);
     }, 500);
     return () => {
-      currentImage.current.style.opacity = 0;
+      setActive(false);
     };
   }, [currentImageSrc]);
   return (
@@ -22,7 +23,7 @@ function Slide ({ currentImageSrc, nextImageIndex, prevImageIndex }) {
       <div ref={wrapper} className={style.wrapper} onLoad={onLoadHandler}>
         <img
           ref={currentImage}
-          className={style.slide}
+          className={cx(style.slide,{[style.active]:active})} 
           src={currentImageSrc}
           alt=''
         />

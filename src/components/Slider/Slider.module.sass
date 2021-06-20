@@ -1,14 +1,25 @@
+$height: 30px
 .container
   position: relative
   width: 50%
   margin: 25px auto
   box-sizing: border-box
 .button
-  width: 50px
-  height: 25px
   position: absolute
+  width: 30px
+  height: $height
+  color: #fff
+  background-color: #5367f8
+  border-radius: 50%
+  border: none
+  top: 50%
+  margin-top: -15px
+  
 .prevButton
-  left: 0
-
+  left: 20px
+  &::after
+    content: "<"
 .nextButton
-  right: 0
+  right: 20px
+  &::after
+    content: ">"
