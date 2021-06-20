@@ -3,8 +3,6 @@ import cx from 'classnames';
 import style from './Slide.module.sass';
 function Slide ({ currentImageSrc, nextImageIndex, prevImageIndex }) {
   const currentImage = useRef(null);
-  const prevImage = useRef(null);
-  const nextImage = useRef(null);
   const wrapper = useRef(null);
   const [active, setActive] = useState(true)
   const onLoadHandler = () => {
@@ -28,13 +26,11 @@ function Slide ({ currentImageSrc, nextImageIndex, prevImageIndex }) {
           alt=''
         />
         <img
-          ref={prevImage}
           className={style.anotherSlide}
           src={prevImageIndex}
           alt=''
         />
         <img
-          ref={nextImage}
           className={style.anotherSlide}
           src={nextImageIndex}
           alt=''
